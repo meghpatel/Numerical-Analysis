@@ -51,7 +51,27 @@ void display(float **a,int m,int n)
 
 float** guassEle(float** a,int m,int n)
 {
-	int temp;
-	
+	int temp[n],ctr,t=m-1;
+	for(int i=m-1;i>=0;i--)
+	{
+		ctr=0;
+		for(int j=0;j<n;j++)
+		{
+			if(a[i][j]==0)
+			{
+				ctr++;
+			}
+			if(ctr==n)
+			{
+				for(int j=0;j<n;j++)
+				{
+					temp[j] = a[t][j];
+					a[t][j] = 0;
+					a[i][j] = temp[j];
+				}
+				t--;
+			}
+		}
+	}
 	return a;
 }
