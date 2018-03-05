@@ -38,8 +38,9 @@ int main()
         }
         cout<<endl;
     }
+    int row = n-1;
     float t;
-    float p = (xp - x[0])/(x[1]-x[0]);
+    float p = (xp - x[n-1])/(x[1]-x[0]);
     printf("P = %f\n",p);
     float sum = 0,x1;
     for(int i=0;i<n;i++)
@@ -51,10 +52,10 @@ int main()
         }
         else
         {
-            t=t*(p-(i-1));
+            t=t*(p+(i-1));
         }
-        x1 = y[0][i]*(t/factorial(i));
-        //printf("\n%f\n",x1);
+        x1 = y[row][i]*(t/factorial(i));
+        row--;
         sum = sum + x1;
     }
     printf("\nSUM is %f\n",sum);
