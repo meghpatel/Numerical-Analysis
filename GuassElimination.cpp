@@ -1,4 +1,5 @@
-//Megh Patel
+//Megh K. Patel
+//16BIT020
 #include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
@@ -23,10 +24,16 @@ int main()
 		for(int j=0;j<n;j++)
 		{
 			cout<<"Enter a["<<i<<"]["<<j<<"]: ";
-			cin>>*(*(a+i)+j); 
+			cin>>*(*(a+i)+j);
 		}
 	}
-	display(a,m,n);
+	float **b = (float **)malloc(m * sizeof(float *));
+	for(int i=0;i<m;i++)
+	{
+		b[i] = (float *)malloc(n * sizeof(float));
+	}
+	b=guassEle(a,m,n);
+	display(b,m,n);
 	return 0;
 }
 
@@ -45,15 +52,6 @@ void display(float **a,int m,int n)
 float** guassEle(float** a,int m,int n)
 {
 	int temp;
-	for(int i=0;i<m-1,i++)
-	{
-		for(int k=0;k<n-i-1;k++)
-		{
-			temp=-(a[k+1][j]/a[k][j]);
-			for(int j=0;j<n;j++)
-			{
-				a[k+1][j] = temp*a[k][j] + a[k+1][j];
-			}
-		}
-	}
+	
+	return a;
 }
