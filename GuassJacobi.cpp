@@ -1,3 +1,5 @@
+//Gauss Jacobi
+//Made by Megh Patel
 #include<stdio.h>
 #include<iostream>
 using namespace std;
@@ -13,18 +15,35 @@ int main()
 	{
 		for(int j=0;j<n;j++)
 		{
-			cout<<"Enter the value of equation "<<i<<" and coefficient "<<j<<" :"<<endl;
+			cout<<"Enter the value of equation "<<i+1<<" and coefficient "<<j+1<<" :"<<endl;
 			cin>>coeff[i][j];
 		}
 		cout<<"Enter the constant term: "<<endl;
 		cin>>cons[i];
 	}
+	int t=0;
+	//Check diagonally dominant 
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			if(i!=j)
+			{
+				sum1 = sum1 + abs(coeff[i][j]);
+			}
+		}
+		if(coeff[i][i]>sum1)
+		{
+			printf("Not dominant\n");
+		}
+	}
+	//End check
 	float x[n];
 	for(int i=0;i<n;i++)
 	{
 		x[i] = 0.0;
 	}
-	int t=0,m;
+	int m;
 	float sum=0;
 	cout<<"Enter the number of iterations: "<<endl;
 	cin>>m;
