@@ -28,8 +28,9 @@ int main()
 	float sum=0;
 	cout<<"Enter the number of iterations: "<<endl;
 	cin>>m;
-	for(int k=0;k<1;k++)
+	for(int k=0;k<m;k++)
 	{
+		t=0;
 		for(int i=0;i<n;i++)
 		{
 			sum = cons[i];
@@ -39,9 +40,9 @@ int main()
 				{
 					continue;
 				}
-				sum = sum - coeff[i][j]*x[j];
+				sum = sum - (coeff[i][j] * x[j]);
 			}
-			sum = sum/coeff[i][t];
+			sum = sum/(coeff[i][t]);
 			t++;
 			x[i] = sum;
 		}
