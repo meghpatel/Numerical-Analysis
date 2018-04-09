@@ -49,7 +49,7 @@ int main()
 		exit(-1);
 	}
 	//End check
-	float x[n];
+	float x[n],y[n];
 	for(int i=0;i<n;i++)
 	{
 		x[i] = 0.0;
@@ -74,10 +74,15 @@ int main()
 			}
 			sum = sum/(coeff[i][t]);
 			t++;
+			y[i] = sum;
+		}
+		for(int k=0;k<n;k++)
+		{
+			x[k]=y[k];
 		}
 		for(int i=0;i<n;i++)
 		{
-			printf("%f ",x[i]);
+			printf("%f ",y[i]);
 		}
 		printf("\n");
 	}
