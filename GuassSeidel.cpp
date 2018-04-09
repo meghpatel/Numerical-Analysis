@@ -1,4 +1,4 @@
-//Gauss Jacobi
+//Gauss Seidel
 //Made by Megh Patel
 #include<stdio.h>
 #include<iostream>
