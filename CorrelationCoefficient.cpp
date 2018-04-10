@@ -20,7 +20,7 @@ int main()
     int* x = (int *)malloc(n * sizeof(int));
     int* y = (int *)malloc(n * sizeof(int));
     int* xy = (int *)malloc(n * sizeof(int));
-    int sumx=0,sumy=0,sumxy=0,sumx2=0,sumy2=0,num=0,temp1,temp2;
+    long sumx=0,sumy=0,sumxy=0,sumx2=0,sumy2=0,num=0,temp1,temp2;
     float corr = 0.0,den=0.0;
     cout<<"Enter the values of X"<<endl;
     for(int i=0;i<n;i++)
@@ -35,26 +35,30 @@ int main()
 
     sumx = sum(x,n);
     sumy = sum(y,n);
+    cout<<"Sum of x is "<<sumx<<" and Sum of y is "<<sumy<<endl;
 
     xy = mul(x,y,n);
     sumxy = sum(xy,n);
+    cout<<"Sum of xy is "<<sumxy<<endl;
 
     x = mul(x,x,n);
     y = mul(y,y,n);
     sumx2 = sum(x,n);
     sumy2 = sum(y,n);
-
+    cout<<"Sum of x^2 is "<<sumx2<<" and Sum of y^2 is "<<sumy2<<endl;
     //Pearsons formulA
     num = n*sumxy - (sumx)*(sumy);
-    temp1 = (n*sumx2)-(sumx2*sumx2);
-    temp2 = (n*sumy2)-(sumy2*sumy2);
-    den = (sqrt(temp1))*(sqrt(temp2));
+    temp1 = (n*sumx2)-(sumx*sumx);
+    temp2 = (n*sumy2)-(sumy*sumy);
+    temp1 = temp1*temp2;
+    den = sqrt(temp1);
+    //den = den*sqrt(temp2);
     //temp1 = 25;
     //den = sqrt(temp1);
     corr = (float)num/den;
 
 //    printf("Numerator: %fCorrelation coefficient: %f",corr);
-    cout<<"Numerator: "<<temp1<<" Denominator: "<<temp2<<" Correlation coefficient: "<<corr<<endl;
+    cout<<"Numerator: "<<num<<" Denominator: "<<den<<" Correlation coefficient: "<<corr<<endl;
 }
 
 
