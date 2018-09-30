@@ -17,6 +17,7 @@ int main()
 	cin>>m;
 	cout<<"Enter the number of variables"<<endl;
 	cin>>n;
+	n = n + 1;
 	float **a = (float **)malloc(m * sizeof(float *));
 	for(int i=0;i<m;i++)
 	{
